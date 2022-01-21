@@ -1,0 +1,458 @@
+3-Jan-22
+0. Try HQL create query example done in class
+
+Create different core java projects --for each relationship   ---build path, hibernate.cfg.xml   , main
+	1. Onetooneex  
+		 ---------   study.entity.Employee, 
+		---------  study.entity.Address ,
+		------------ prudent.study.HibernateApplication
+
+   2. Onetomanyex -------- 
+-------  hibernate.test.oneToMany.foreignKeyAsso.EmployeeEntity  ,  
+-------- hibernate.test.oneToMany.foreignKeyAsso.EmployeeEntity .AccountEntity ,
+--------hibernate.test.oneToMany.TestForeignKeyAssociation
+
+	3. manytomanyex
+
+----hibernate.test.manyToMany.joinTable.ReaderEntity
+----hibernate.test.manyToMany.joinTable.SubscriptionEntity
+-----hibernate.test.manyToMany.TestJoinTable
+
+
+
+1-Jan-22
+HW --- do the crud operation on Product table as a WEB application as discussed in class using DAO .
+
+31-dec-21
+HW --------------------
+	1. Try the code written in class  !!!
+	2. Create table using hibernate grocery_product  ---col =  product_id, product_name, product_desc, unit , cost, expiry_date 
+	Perform crud operations on this table using hibernate
+		Switch case program
+			1. Add a new prod
+			2. Change the product properties 
+			3. Delete a product
+			4. Show details of a  product with a given id
+			5. Quit 
+
+30-dec-21
+HW --- 
+HW 0 --- Try the ExceptionHandling example given in class  !!
+HW 1. Exception Handling  using ONLY JSP error Page 
+		Write a JSP that accepts a number from user and shows its SQUARE value
+		Enter a num : tf (  type=text )
+		Show---button----submit----  action is same page
+		SQUARE =  pick the value from tf , parse Int and show the SQUARE 
+		
+		If there is a non number then exception is thrown!!!
+		In the PAGE directive add  errorPage=error.jsp    isErrorPage="false" 
+		
+		Then write error.jsp  (page directive  isErrorPage="true" )--- print the problem in a user friendly way 
+			Also print the IMPLICIT object   exception !!!
+			
+
+HW2. Exception Handling using Error codes !!
+		In the web.xml   add  for 404 and 500
+		 <error-page>
+		  	<error-code>404</error-code>
+		  	<location>/ehandler1</location>
+		  </error-page>
+		 <error-page>
+		  	<error-code>500</error-code>
+		  	<location>/ehandler2</location>
+		  </error-page>
+		
+	Write 2 servlets with url pattern as  ehandler1 and ehandler2  respectively
+	
+	In those servlets print the error codes and  explain the problem in user friendly way
+	
+	Write a servlet TestServlet 
+		Accept a string from user in url directly 
+			Show the string in uppercase
+		If the user does not give the string then 500  handler should be invoked
+		
+		Give a wrong servlet name in the URL , then the 400 handler should be invoked
+
+
+3. HW  ---- SCOPES try out the ex1.jsp and ex2.jsp   as discussed in class !!!
+
+4. HW---- Create a JSP that accepts a name in the textfield 
+	Add button ---submit --- same jsp  ---- add the name to an arraylist using scriplet
+	Print all the names using EL and JSTL foreach tag 
+		If (JSTL if )  the length of the name is less than 5 print that name in uppercase
+			Print other names in lowercase
+
+
+29-dec-21
+Ex1 ----As discussed in class Demo of using DAO and DO for  Book table.Ask the user to enter a bookid  --------> DAO select the book with the ID and return a DO 
+	JSP will print the contents of the DO 
+
+
+
+
+Ex 2 -------------  
+As discussed in class, showing all book table rows
+allbooks.jcp
+
+ allbooks.jsp ----------->DAO  --------->List of POJO 
+
+Ex 3 --------as discussed in class
+	One. Jsp   = Ask the user to enter the name  
+	Submit --------> action = checkPalindrome.jsp  
+	
+	checkPalindrome.jsp 
+		Checks if name is a palindrome ?   IF yes forward to  Weclome.jsp  that prints 
+										Welcome username to Palindrome club
+							If not forward to One.jsp with a message the this name is not a palindrome try again 
+
+
+Ex4 -------  shop.jsp , as discussed in class
+
+HW --Additional ---
+	Show login page - if success show shop.jsp 
+				If user clicks make  bill button  ----- save the items purchased in DB for this date and User
+	Show a logout link  ( in the logout.jsp scriplet session.invalidate()   )
+
+
+
+28-dec-21
+
+HW -----------------------------------------------
+
+1.
+Write the HitServlet that shows user wise hit count and global hit count , as discussed in class.
+Add Logout functionality, as discussed in class.
+Run it on different browsers !!
+
+2. Write a JSP example to Show hello 100 times ,as discussed in class!!! 
+
+3. Write web app using JSP to Accept number from user and show hello those many times !!! DO in two ways as discussed in class.
+
+Way 1  ------- Create two pages one for input and one hello
+
+Way 2 ------Do everything in one page 
+
+
+4. write a JSP page to insert a row in the book table as discussed in class !!!
+
+
+
+
+
+27-dec-21
+HW ---
+1.Try  the TestClassClass program done in class 
+2.Try the Include Chaining example done in class.
+3. Start using embedded tomcat !!!
+4. 
+Write a program ----
+	1	User calls  a  LoginServlet  GET 	 User gets login page	
+	2	User enters login details clicks login --	LoginServlet Post will verify the login details	
+		LoginServlet  Post is called	
+			
+			If  correct  forward chain to HomeServlet 	HomeServlet POST will response  as WELCOME  Username
+			If wrong then forward to ErrorServlet 	ErrorServlet POST will response INCORRECT Login 
+
+
+25-dec-21
+
+HW  1---
+	Modify the LoginServlet such that in the init method a hashmap of hardcoded users is created - as discussed in class 
+	Use that map in the doPost method to check if login info is correct or wrong 
+	|
+	|
+	Again modify the init method such that the usernames and passwords are read from a DB table user_info and added to hashmap  ( populate the hashmap from DB )
+
+
+HW 2 ----
+	Write a static html 
+		Enter book id : tf
+		Enter book name : tf
+		Enter cost : tf
+		
+		Save --------------submit ------>AddBookServlet ---doPost ----write code to insert one record in the DB table 
+		
+
+HW 3 ----
+	Write a Servlet SearchInput 
+		Select an Id  :  dropdownlist of all the book ids from book table 
+		Show-details  ---submit ---------> FetchDetailsServlet -----fire query get all the details of the book with selected id and show the details on browser .
+		
+HW 4 --- Try out the life cycle examples done in class 
+			Not adding default constructor
+			Lazy and eager
+			Init , destroy ,service
+			Init doGet destroy
+			
+
+24-dec-21
+HW 1 -------------Do the Ex1, Ex2, Ex3 as discussed in class ( don’t copy code,  type it and use my code for reference ) 
+HW 2 ------------- Write a static html  that accepts username and password from the user and clicks login submit button
+			
+			Login.html 
+		     Write a LoginServlet -------------doPost  method only 
+				Get the request parameter uname password and check 
+					If uname is "cdac" and password is "bingo123"   then show the user Welcome Username
+					Otherwise show the message  - You are not allowed!!
+					
+HW 3 -----------    Write a static html that 
+				Num 1:  tf
+				Num2 : tf
+				Dropdown :  Add,Subtract,Multiply,Divide
+				Do-submit  = POST request   --------  CalculatorServlet 
+				
+			CalculatorServlet will calculate as per selection ---- show result as follows
+			
+					Output html
+					Result
+						10 + 20  = 30   //if num1 is 10 and num2 is 20 and dropdown selection is Add
+				
+
+HW 4 ------  Write a static html that has
+			Name : tf
+			Radio select 
+			Nationality :    Indian rb  , Canadian  rb,  australian  rb 
+			
+			OK button   ---submit ------------> NationalityServlet 
+									Pick the nationality and print output as follows
+									
+									Shubham is having Australian nationality // name=Shubham and rb  Australian selected
+									
+									
+HW 5 ------------write a static html  that has 
+				Name : tf
+				Entertainment that you prefer :  give check box for each one ------
+				Movie 
+				Trek
+				Classical Music
+				Rock 
+				Party
+				Trip
+				
+				OK ---submit button  -----EntertainmentServlet 
+				It should show output html as
+				    Prachi  likes  Trek and Classical Music and Trip  //assuming name = prachi and checkboxes       selected are Trek,Classical Music and Trip 
+				
+				
+				
+				
+
+
+23-dec-21
+HW1 --
+
+	1. Download and install Tomcat 9 !!!
+
+	2. Check if JAVA_HOME = path upto jdk    is present , if not then set it through environment variables!!!
+
+	3. Start the tomcat server
+		Copy the Installation folder path upto bin
+		Open CMD
+		 cd to above path 
+		 cd E:\Software\Install-Folder\tomcat\apache-tomcat-9.0.21\bin
+
+		 Run  the startup.bat  on the prompt !!!
+	This should start your tomcat server .
+	You see the server window with this message once the server is started--
+	org.apache.catalina.startup.Catalina.start Server startup in [28,451] milliseconds
+	
+	4. Run the Client  --- any browser 
+		a. Type the following - URL window -----   
+				Protocol : //host:port/service name /resource name
+				
+				 http ://localhost:8080
+
+
+
+
+HW2 ---
+	Create the SimpleHtmlWebProject in Eclipse as discussed in class
+		Add the different HTMLs done in  last week  to that project's WebContent
+	Access those using web server url from browser.
+	
+HW3--------------
+Steps to write the first servlet
+	1. Create a dynamic web project
+	2. Also include web.xml
+	3. Add fish.html in webcontent
+	4. Add fish.html in welcome file list in web.xml 
+	5. Deploy and test from browser as discussed in class
+	6. In eclipse src right click , new , servlet 
+	7. You get a servlet class ---remove all unnecessary things as discussed in class
+	8. Add tomcat-installation/lib/servlet-api.jar    this to build path
+	9. Make servlet and servlet-mapping entries in web.xml
+	10. Deploy the project
+	11. Run from browser
+
+	If u  use   http://localhost:8080/SWP     you will see welcome page fish.html (static content )
+	If u use  http://localhost:8080/SWP/roses      you will see dynamic content generated from servlet
+										
+
+
+
+
+
+
+
+
+22-dec21
+	HW  -------------------
+	Redo yesterday's assignments using PreparedStatement
+
+	HW --- create account table and do the payment transaction as discussed in class
+			Withdraw from one account and add to another account.
+			Modify such that the amount to be paid and account numbers are entered by user !!!!
+
+	
+	HW  -------------
+		Fire a query for a stored procedure with IN and OUT parameters as discussed in class!!!
+
+
+
+
+21-dec-21
+HW ----------------
+
+	1. 
+		Create the table from mysql client-------------
+		Product table 
+			Columns ---product_id, product_name, product_cost, product_desc, product_expiry_date
+			
+		Write a Java Client that connects to the database and inserts records into product table in a loop, till user says  "yes"
+		
+		
+	2. Write a Java Client that connects to the database and asks the user to enter a product id and show the details of that product id on console . ( select query with where clause )
+	3. Write a Java Client that connects to the data base and asks the user to enter a product id and delete the row from the database.
+	4. Write a java client that shows all products in the table with following info
+		a. Product name  Expiry Date
+	5. Write a java client that accepts a product id from the user and also enters a new product description ---update the table so that desc column is modified for that product.
+
+
+
+16-dec-2021
+HW
+
+Assignments ---
+	1. Create a Login form having 
+		Label : textfield
+		Label:  password textfield
+		Login button   clear button
+	Use inline CSS  to  give a colorful page, rounded elements, different borders and fonts
+	U can give a border at div level 
+	
+
+    2.  Create a registration form  having 
+		Firstname 
+		Lastname
+		
+		Address
+		Email
+		Dob
+		Phone
+		
+		Gender  ---radio button
+		
+		
+		Save button
+		
+	Use internal CSS  -----
+	-  give a common font color , font name , font style for all the tags
+	-give common background for input all selectors
+	- Give a rounded  border to gender div --- use class .rounded
+	
+	3. Write an external css file that has a few classes giving rule sets
+		.alpha
+		
+		.beta
+		
+		.gama
+	
+	Rule sets should have bold, italics, underline , colors, bgColors
+	Borders, text alignment , margins 
+	
+	
+	4. Create an html  for  a simple currency convertor
+	
+		User should give currency value and type( dropdown list )
+		Convert button  To dropdown
+		
+		Result ---Text  ( dummy result ) 
+	
+	Use the classes for dropdown and button and texfields and labels from bootstrap.min.css
+	
+   5.  Design your card using html CSS 
+	It should have your photo, name surname, email , phone numbers ,whatsapp and twitter handles
+
+   6. download the audio and video files and run the media.html discussed in class
+
+15-dec-2021
+HW ----------
+
+	1. Write an html that will show the following form 
+		First name : textfield
+		Last name : textfield
+		Address : textarea
+		Submit  ----method = GET   , give name and value to each element and observe the url after submit 
+		
+	2. Write an html having following form --
+		a. Educational Details  ( h1 tag )
+		b. Drop down  Stream  :  science commerce arts 
+		c. Date of passing :   date textfield
+		d. Percentage marks :  number textfield
+	
+	Submit  ----method = GET   , give name and value to each element and observe the url after submit 
+	
+	3. Write an html  as follows
+		Num1 :  number textfield
+		Num2 : number textfield
+		Radio buttons for operations  + , - *  / 
+		Result : number textfield 
+		Submit  ----method = GET   , give name and value to each element and observe the url after submit 
+		
+	4. Show an html that has following
+		List of Books - as unordered list 
+		Link to the first two htmls 
+		
+		
+	5. Show checkboxes as follows -
+		a. Executed  projects
+			i. Project1   project2    project 3
+	Submit  ----method = GET   , give name and value to each element and observe the url after submit 
+	   
+
+
+
+14-Dec-2021
+HW  ---
+	1. Write hello world in first.html in body tag , save. Run on all browsers on your machine. On the browser observe file://  in the URL window
+	Right click and VIEW PAGE SOURCE
+	
+   2. add a title to the first.html  , refresh and observe title on all browsers
+   3.  use div  , p , span , pre tags in second.html to show data
+                  create 3 div  tags in the body tag
+		   Twinkle Twinkle Little Star
+		         How I Wonder What You Are
+		
+		    Up  above the World  so high
+		          Like A Diamond in the sky
+		
+		First div tag  - use <p> 
+		Second div tag - use <span>
+		Third div tag - use <pre> 
+     4.   b , I  ,u  
+		Create  ex4.html 
+		In the body tag add 4 div tags
+		  show your full name in each div tag 
+		  as follows
+			1. Full name in bold
+		  2. First name and last name in italics and full name in bold
+		3. Full name in bold and underline
+		4. First name in bold underline, second name in italics underline , lastname only underline
+		
+	5. H1 h2 h3 h4 tags   ex5.html , body, div 
+		1. Show Heading of your business in H1 tag
+		2. Show your name in H2 tag
+		3. Show product name in <h3> tag
+		
+
+
